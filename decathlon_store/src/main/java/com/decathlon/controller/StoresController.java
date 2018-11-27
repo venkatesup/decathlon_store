@@ -40,7 +40,7 @@ public class StoresController {
 	@PostMapping
 	public ResponseEntity<Store> createStore(@RequestBody Store store) {
 		
-		//TODO : Need to change entity class to dto object
+		//TODO : Need to change entity class request object to dto object
 		Store dbStore=storesService.createStore(store);
 		
 		// setting header for current url path with Id
