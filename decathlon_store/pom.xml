@@ -9,8 +9,8 @@
 	<packaging>jar</packaging>
 
 
-	<name>Decathlon</name>
-	<description>Decathlon</description>
+	<name>DecathlonStoreApplication</name>
+	<description>DecathlonStoreApplication</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
