@@ -19,52 +19,55 @@ public class StoresServiceImpl implements StoresService {
 	@Autowired
 	StoreRepository storeRepository;
 
-
 	@Override
 	public List<StoresDto> fetchAllStores() {
-		
-		List<Store> storesList=storeRepository.findAll();
-		
-		List<StoresDto> storesDto=null;
-		
-		if(storesList!=null && !storesList.isEmpty()){
-			
-			storesDto=storesList.stream().map(store -> new StoresDto(store.getStoreId(),store.getStoreName(),store.getStoreCity())).collect(Collectors.toList());
-			
+
+		List<Store> storesList = storeRepository.findAll();
+
+		List<StoresDto> storesDto = null;
+
+		if (storesList != null && !storesList.isEmpty()) {
+
+			storesDto = storesList
+					.stream()
+					.map(store -> new StoresDto(store.getStoreId(), store
+							.getStoreName(), store.getStoreCity()))
+					.collect(Collectors.toList());
+
 		}
 		return storesDto;
 	}
 
-
 	@Override
 	public Store createStore(Store store) {
-		
+
 		return storeRepository.save(store);
 	}
 
-
 	@Override
-	public List<ProductDto> fetchAllProductsByStoreId(Integer storeId) throws Exception {
-		
+	public List<ProductDto> fetchAllProductsByStoreId(Integer storeId)
+			throws Exception {
+
 		Optional<Store> store = storeRepository.findById(storeId);
-		
+
 		if (!store.isPresent()) {
 			throw new Exception("Invalid storeId" + storeId);
 		}
-	
+
 		List<Product> productsList = store.get().getProducts();
-		List<ProductDto> productDtos=null;
-		
-		if(productsList!=null && !productsList.isEmpty()){
-			
-			productDtos=productsList.stream().map(pro -> new ProductDto(pro.getProductId(),pro.getProductName(),
-					pro.getProductDescription(),pro.getProductLevel(),pro.getProductSport())).collect(Collectors.toList());
+		List<ProductDto> productDtos = null;
+
+		if (productsList != null && !productsList.isEmpty()) {
+
+			productDtos = productsList
+					.stream()
+					.map(pro -> new ProductDto(pro.getProductId(), pro
+							.getProductName(), pro.getProductDescription(), pro
+							.getProductLevel(), pro.getProductSport()))
+					.collect(Collectors.toList());
 		}
-		
+
 		return productDtos;
 	}
-	
-	
-	
-	
+
 }

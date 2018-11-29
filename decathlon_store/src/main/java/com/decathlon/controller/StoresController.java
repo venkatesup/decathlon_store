@@ -24,34 +24,38 @@ import com.decathlon.service.StoresService;
 @RequestMapping(value = "/v1/public/stores")
 public class StoresController {
 
-	private static final Logger logger = Logger.getLogger(StoresController.class);
+	private static final Logger logger = Logger
+			.getLogger(StoresController.class);
 
 	@Autowired
-	StoresService storesService;
+	private StoresService storesService;
 
 	@GetMapping("/{storeId}/products")
-	public List<ProductDto> fetchAllProductsByStoreId(@PathVariable("storeId") Integer storeId) throws Exception {
-		
-		logger.log(Level.INFO,"fetchAllProductsByStoreId");
-		
+	public List<ProductDto> fetchAllProductsByStoreId(
+			@PathVariable("storeId") Integer storeId) throws Exception {
+
+		logger.log(Level.INFO, "fetchAllProductsByStoreId");
+
 		return storesService.fetchAllProductsByStoreId(storeId);
 	}
 
 	@PostMapping
 	public ResponseEntity<Store> createStore(@RequestBody Store store) {
-		
-		//TODO : Need to change entity class request object to dto object
-		Store dbStore=storesService.createStore(store);
-		
+
+		// TODO : Need to change entity class request object to dto object
+		Store dbStore = storesService.createStore(store);
+
 		// setting header for current url path with Id
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{storeId}").buildAndExpand(dbStore.getStoreId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{storeId}").buildAndExpand(dbStore.getStoreId())
+				.toUri();
 		return ResponseEntity.created(uri).build();
-		
+
 	}
 
-	@GetMapping
+	@GetMapping("/stores")
 	public List<StoresDto> retriveAllStores() {
-		
+
 		return storesService.fetchAllStores();
 	}
 
