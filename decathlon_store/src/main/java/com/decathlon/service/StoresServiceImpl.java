@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.decathlon.DecathlonStoreApplication;
 import com.decathlon.dto.ProductDto;
 import com.decathlon.dto.StoresDto;
 import com.decathlon.entities.Product;
@@ -16,12 +18,16 @@ import com.decathlon.repository.StoreRepository;
 @Service
 public class StoresServiceImpl implements StoresService {
 
+	private static final Logger logger = Logger.getLogger(StoresServiceImpl.class);
+	
 	@Autowired
 	StoreRepository storeRepository;
 
 	@Override
 	public List<StoresDto> fetchAllStores() {
 
+		logger.info("retriveAllStores in service class class");
+		
 		List<Store> storesList = storeRepository.findAll();
 
 		List<StoresDto> storesDto = null;

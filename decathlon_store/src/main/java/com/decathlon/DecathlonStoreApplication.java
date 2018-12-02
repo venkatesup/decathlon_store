@@ -1,6 +1,7 @@
 package com.decathlon;
 
 import org.jboss.logging.*;
+
 import org.jboss.logging.Logger.Level;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
