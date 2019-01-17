@@ -7,12 +7,15 @@ import com.decathlon.dto.StoresDto;
 import com.decathlon.entities.Store;
 
 public interface StoresService {
-	
-	List<StoresDto> fetchAllStores();
-	
-	// below code need to modify 
-	Store createStore(Store store);
-	
-	List<ProductDto> fetchAllProductsByStoreId(Integer storeId) throws Exception;
-	
+
+	public List<StoresDto> fetchAllStores();
+
+	// below code need to modify
+	public Store createStore(Store store);
+
+	public List<ProductDto> fetchAllProductsByStoreId(Integer storeId)
+			throws Exception;
+
+	public StoresDto findById(Integer storeId);
+
 }

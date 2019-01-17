@@ -55,9 +55,13 @@ public class StoresController {
 
 	@GetMapping("/stores")
 	public List<StoresDto> retriveAllStores() {
-
 		logger.info("retriveAllStores in controller class");
 		return storesService.fetchAllStores();
+	}
+
+	@GetMapping("/{storeId}")
+	public StoresDto findByStoreId(@PathVariable("storeId") Integer storeId) {
+		return storesService.findById(storeId);
 	}
 
 }

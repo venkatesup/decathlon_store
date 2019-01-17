@@ -8,7 +8,6 @@ import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.decathlon.DecathlonStoreApplication;
 import com.decathlon.dto.ProductDto;
 import com.decathlon.dto.StoresDto;
 import com.decathlon.entities.Product;
@@ -18,8 +17,9 @@ import com.decathlon.repository.StoreRepository;
 @Service
 public class StoresServiceImpl implements StoresService {
 
-	private static final Logger logger = Logger.getLogger(StoresServiceImpl.class);
-	
+	private static final Logger logger = Logger
+			.getLogger(StoresServiceImpl.class);
+
 	@Autowired
 	StoreRepository storeRepository;
 
@@ -27,7 +27,7 @@ public class StoresServiceImpl implements StoresService {
 	public List<StoresDto> fetchAllStores() {
 
 		logger.info("retriveAllStores in service class class");
-		
+
 		List<Store> storesList = storeRepository.findAll();
 
 		List<StoresDto> storesDto = null;
@@ -74,6 +74,16 @@ public class StoresServiceImpl implements StoresService {
 		}
 
 		return productDtos;
+	}
+
+	@Override
+	public StoresDto findById(Integer storeId) {
+		Optional<Store> store = storeRepository.findById(storeId);
+		StoresDto storesDto = new StoresDto();
+		storesDto.setStoreCity(store.get().getStoreCity());
+		storesDto.setStoreName(store.get().getStoreName());
+		storesDto.setStoreId(store.get().getStoreId());
+		return storesDto;
 	}
 
 }
