@@ -2,5 +2,5 @@
 
 swagger url
 
-1 ) http://localhost:9002/decathlon-store/swagger-ui.html
+1 ) http://localhost:8002/decathlon-store/swagger-ui.html
 

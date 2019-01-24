@@ -1,4 +1,4 @@
-package com.decathlon.exception;
+package com.decathlon.store.exception;
 
 import java.util.Date;
 

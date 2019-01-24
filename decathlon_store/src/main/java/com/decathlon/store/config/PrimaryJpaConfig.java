@@ -1,4 +1,4 @@
-package com.decathlon.config;
+package com.decathlon.store.config;
 
 import java.beans.PropertyVetoException;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {
-		"com.decathlon.repository" }, 
+		"com.decathlon.store.repository" }, 
 	entityManagerFactoryRef = "primaryEntityManager", transactionManagerRef = "primaryTransactionManager")
 @EnableTransactionManagement
 public class PrimaryJpaConfig {

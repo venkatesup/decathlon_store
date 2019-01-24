@@ -1,10 +1,10 @@
-package com.decathlon.service;
+package com.decathlon.store.service;
 
 import java.util.List;
 
-import com.decathlon.dto.ProductDto;
-import com.decathlon.dto.StoresDto;
-import com.decathlon.entities.Store;
+import com.decathlon.store.dto.ProductDto;
+import com.decathlon.store.dto.StoresDto;
+import com.decathlon.store.entities.Store;
 
 public interface StoresService {
 

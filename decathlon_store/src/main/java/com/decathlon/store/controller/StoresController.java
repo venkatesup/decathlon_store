@@ -1,4 +1,4 @@
-package com.decathlon.controller;
+package com.decathlon.store.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.decathlon.dto.ProductDto;
-import com.decathlon.dto.StoresDto;
-import com.decathlon.entities.Store;
-import com.decathlon.service.StoresService;
+import com.decathlon.store.dto.ProductDto;
+import com.decathlon.store.dto.StoresDto;
+import com.decathlon.store.entities.Store;
+import com.decathlon.store.service.StoresService;
 
 @RestController
 @RequestMapping(value = "/v1/public/stores")

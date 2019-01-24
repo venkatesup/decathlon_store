@@ -1,4 +1,4 @@
-package com.decathlon.service;
+package com.decathlon.store.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,11 +8,11 @@ import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.decathlon.dto.ProductDto;
-import com.decathlon.dto.StoresDto;
-import com.decathlon.entities.Product;
-import com.decathlon.entities.Store;
-import com.decathlon.repository.StoreRepository;
+import com.decathlon.store.dto.ProductDto;
+import com.decathlon.store.dto.StoresDto;
+import com.decathlon.store.entities.Product;
+import com.decathlon.store.entities.Store;
+import com.decathlon.store.repository.StoreRepository;
 
 @Service
 public class StoresServiceImpl implements StoresService {

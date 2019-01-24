@@ -1,4 +1,4 @@
-package com.decathlon.dto;
+package com.decathlon.store.dto;
 
 import javax.validation.constraints.NotNull;
 

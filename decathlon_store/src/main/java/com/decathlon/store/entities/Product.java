@@ -1,4 +1,4 @@
-package com.decathlon.entities;
+package com.decathlon.store.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

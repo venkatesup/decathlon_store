@@ -1,4 +1,4 @@
-package com.decathlon.constants;
+package com.decathlon.store.constants;
 
 public class UrlConstants {
 	

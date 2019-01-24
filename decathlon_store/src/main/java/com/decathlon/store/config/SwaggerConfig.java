@@ -1,4 +1,4 @@
-package com.decathlon.config;
+package com.decathlon.store.config;
 
 import java.util.Arrays;
 

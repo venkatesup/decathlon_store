@@ -1,8 +1,8 @@
-package com.decathlon.repository;
+package com.decathlon.store.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.decathlon.entities.Store;
+import com.decathlon.store.entities.Store;
 
 public interface StoreRepository extends JpaRepository<Store, Integer> {
 
