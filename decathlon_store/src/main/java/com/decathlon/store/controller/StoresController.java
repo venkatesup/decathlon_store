@@ -3,8 +3,8 @@ package com.decathlon.store.controller;
 import java.net.URI;
 import java.util.List;
 
-import org.jboss.logging.Logger;
-import org.jboss.logging.Logger.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ import com.decathlon.store.service.StoresService;
 @RequestMapping(value = "/v1/public/stores")
 public class StoresController {
 
-	private static final Logger logger = Logger
+	private static final Logger logger = LoggerFactory
 			.getLogger(StoresController.class);
 
 	@Autowired
@@ -34,7 +34,7 @@ public class StoresController {
 	public List<ProductDto> fetchAllProductsByStoreId(
 			@PathVariable("storeId") Integer storeId) throws Exception {
 
-		logger.log(Level.INFO, "fetchAllProductsByStoreId");
+		logger.info("fetchAllProductsByStoreId");
 
 		return storesService.fetchAllProductsByStoreId(storeId);
 	}
@@ -61,7 +61,8 @@ public class StoresController {
 
 	@GetMapping("/{storeId}")
 	public StoresDto findByStoreId(@PathVariable("storeId") Integer storeId) {
-		return storesService.findById(storeId);
+		StoresDto storesDto = storesService.findById(storeId);
+		logger.info("store " + storesDto);
+		return storesDto;
 	}
-
 }
